@@ -9,7 +9,6 @@ class AppWidget extends StatelessWidget {
     Modular.setInitialRoute("/movies/mostPopularMovies/");
 
     return MaterialApp.router(
-      title: 'Codeflix_ark',
       debugShowCheckedModeBanner: false,
       routeInformationParser: Modular.routeInformationParser,
       routerDelegate: Modular.routerDelegate,

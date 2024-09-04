@@ -12,9 +12,7 @@ import '../bloc/search_movies_bloc/states/movie_not_found_failure_state.dart';
 import '../bloc/search_movies_bloc/states/search_movies_states.dart';
 
 class MoviesSearchDelegate extends SearchDelegate {
-  final SearchMoviesBloc searchMoviesBloc;
-
-  MoviesSearchDelegate(this.searchMoviesBloc);
+  final searchMoviesBloc = Modular.get<SearchMoviesBloc>();
 
   @override
   List<Widget>? buildActions(BuildContext context) {
@@ -24,12 +22,13 @@ class MoviesSearchDelegate extends SearchDelegate {
   @override
   Widget? buildLeading(BuildContext context) {
     return IconButton(
-        onPressed: () => Navigator.pop(context),
-        icon: Icon(
-          Icons.close,
-          size: 25,
-          color: Colors.blue,
-        ));
+      onPressed: () => Navigator.pop(context),
+      icon: Icon(
+        Icons.close,
+        size: 25,
+        color: Colors.blue,
+      ),
+    );
   }
 
   @override
@@ -165,8 +164,7 @@ class MoviesSearchDelegate extends SearchDelegate {
                                           state.searchMoviesList.movies[position].title,
                                           maxLines: 2,
                                           overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
-                                              color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+                                          style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
                                         ),
                                       ),
                                       state.searchMoviesList.movies[position].releaseDate.isEmpty
@@ -174,10 +172,7 @@ class MoviesSearchDelegate extends SearchDelegate {
                                           : Text(
                                               state.searchMoviesList.movies[position].releaseDate,
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 16,
-                                                  fontStyle: FontStyle.italic),
+                                                  color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16, fontStyle: FontStyle.italic),
                                             ),
                                       SizedBox(
                                         height: 7,
@@ -207,10 +202,7 @@ class MoviesSearchDelegate extends SearchDelegate {
                                                 ),
                                                 Text(
                                                   state.searchMoviesList.movies[position].score,
-                                                  style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontSize: 16,
-                                                      fontWeight: FontWeight.bold),
+                                                  style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
                                                 ),
                                               ],
                                             ),

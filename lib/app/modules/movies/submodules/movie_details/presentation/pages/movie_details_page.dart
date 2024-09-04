@@ -103,9 +103,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                                             child: Image.network(
                                               '${MoviesSettings.moviePosterUrl}${state.movieDetails.poster}',
                                               errorBuilder: (context, error, stack) {
-                                                return Image.network(
-                                                    'https://static.thenounproject.com/png/3237447-200.png',
-                                                    color: Colors.white);
+                                                return Image.network('https://static.thenounproject.com/png/3237447-200.png', color: Colors.white);
                                               },
                                             ),
                                             onTap: () => Navigator.pop(context),
@@ -157,10 +155,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                                             ),
                                             Text(
                                               state.movieDetails.score,
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 22,
-                                                  fontWeight: FontWeight.bold),
+                                              style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
                                             ),
                                           ],
                                         ),
@@ -170,8 +165,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                                       : Text(
                                           'Release Date: ${state.movieDetails.releaseDate}',
                                           textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                              color: Colors.white, fontSize: 17, fontWeight: FontWeight.bold),
+                                          style: TextStyle(color: Colors.white, fontSize: 17, fontWeight: FontWeight.bold),
                                         ),
                                   Padding(padding: EdgeInsets.all(2)),
                                   state.movieDetails.runtime.isNegative
@@ -179,8 +173,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                                       : Text(
                                           'Duration: ${state.movieDetails.runtime} min',
                                           textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                              color: Colors.white, fontSize: 17, fontWeight: FontWeight.bold),
+                                          style: TextStyle(color: Colors.white, fontSize: 17, fontWeight: FontWeight.bold),
                                         ),
                                   Padding(padding: EdgeInsets.all(2)),
                                   state.movieDetails.genres.isEmpty
@@ -188,8 +181,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                                       : Text(
                                           'Genres: ${state.movieDetails.genres.join(', ')}',
                                           textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                              color: Colors.white, fontSize: 17, fontWeight: FontWeight.bold),
+                                          style: TextStyle(color: Colors.white, fontSize: 17, fontWeight: FontWeight.bold),
                                         ),
                                   Padding(padding: EdgeInsets.all(12)),
                                   state.movieDetails.overview.isEmpty
@@ -197,8 +189,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                                       : Text(
                                           'Overview: ${state.movieDetails.overview}',
                                           textAlign: TextAlign.justify,
-                                          style: TextStyle(
-                                              fontSize: 17, fontWeight: FontWeight.bold, color: Colors.white),
+                                          style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold, color: Colors.white),
                                         ),
                                   Padding(padding: EdgeInsets.all(8)),
                                   ((Uri.tryParse(state.movieDetails.site)?.hasAbsolutePath ?? false)
@@ -209,16 +200,13 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                                           child: Text(
                                             'Site: ${state.movieDetails.site}',
                                             textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                                fontSize: 17,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.lightBlueAccent),
+                                            style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold, color: Colors.lightBlueAccent),
                                           ),
                                         )
                                       : SizedBox()),
                                   Padding(padding: EdgeInsets.all(3)),
                                   ElevatedButton.icon(
-                                      style: ElevatedButton.styleFrom(primary: Colors.green),
+                                      style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                                       onPressed: () {
                                         showDialog(
                                           context: context,
@@ -269,7 +257,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                                         ),
                                       )),
                                   ElevatedButton.icon(
-                                      style: ElevatedButton.styleFrom(primary: Colors.white),
+                                      style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
                                       onPressed: () {
                                         showDialog(
                                           context: context,
@@ -327,7 +315,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                                         style: TextStyle(color: Colors.blue),
                                       )),
                                   ElevatedButton.icon(
-                                      style: ElevatedButton.styleFrom(primary: Colors.white),
+                                      style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
                                       onPressed: () {
                                         showDialog(
                                           context: context,

@@ -1,4 +1,3 @@
-
 import 'package:flix_clean_ark/app/modules/movies/submodules/movies_by_genres/presentation/bloc/movies_by_genres_bloc/events/reset_movies_by_genres_event.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -8,9 +7,9 @@ import '../../../domain/usecases/get_movies_by_genres.dart';
 import 'events/get_movies_by_genres_event.dart';
 import 'events/movies_by_genres_events.dart';
 import 'states/get_movies_by_genres_failure_state.dart';
-import 'states/movies_by_genres_initial_state.dart';
 import 'states/get_movies_by_genres_loading_state.dart';
 import 'states/get_movies_by_genres_success_state.dart';
+import 'states/movies_by_genres_initial_state.dart';
 import 'states/movies_by_genres_states.dart';
 
 class MoviesByGenresBloc extends Bloc<MoviesByGenresEvents, MoviesByGenresStates> implements Disposable {
@@ -22,12 +21,9 @@ class MoviesByGenresBloc extends Bloc<MoviesByGenresEvents, MoviesByGenresStates
   }
 
   @override
-  void dispose() {
-    close();
-  }
+  void dispose() => close();
 
-  void _mapGetMoviesByGenresEventToState(
-      GetMoviesByGenresEvent event, Emitter<MoviesByGenresStates> emit) async {
+  void _mapGetMoviesByGenresEventToState(GetMoviesByGenresEvent event, Emitter<MoviesByGenresStates> emit) async {
     emit(GetMoviesByGenresLoadingState());
 
     final result = await usecase(event.parameters);
@@ -38,8 +34,7 @@ class MoviesByGenresBloc extends Bloc<MoviesByGenresEvents, MoviesByGenresStates
     );
   }
 
-  void _mapResetMoviesByGenresEventToState(
-      ResetMoviesByGenresEvent event, Emitter<MoviesByGenresStates> emit) {
+  void _mapResetMoviesByGenresEventToState(ResetMoviesByGenresEvent event, Emitter<MoviesByGenresStates> emit) {
     emit(MoviesByGenresInitialState());
   }
 }

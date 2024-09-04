@@ -5,8 +5,10 @@ import 'package:flix_clean_ark/app/modules/movies/submodules/genres_list/present
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../domain/entites/genre.dart';
 import '../../../domain/failures/genres_list_failure.dart';
 import '../../../domain/usecases/get_genres_list.dart';
+import '../../../infrastructure/models/genre_model.dart';
 import 'events/genres_list_events.dart';
 import 'events/get_genres_list_event.dart';
 
@@ -16,10 +18,13 @@ class GenresListBloc extends Bloc<GenresListEvents, GenresListStates> implements
   GenresListBloc(this.usecase) : super(GetGenresListLoadingState()) {
     on<GetGenresListEvent>(_mapGenresListEventToState);
   }
+
   @override
   void dispose() {
     close();
   }
+
+  Genre genre = GenreModel(id: -1, name: 'Most Popular Movies');
 
   void _mapGenresListEventToState(GetGenresListEvent event, Emitter<GenresListStates> emit) async {
     emit(GetGenresListLoadingState());
