@@ -1,4 +1,4 @@
-package com.example.flix_clean_ark
+package com.example.bloc_vs_value_notifier
 
 import io.flutter.embedding.android.FlutterActivity
 
